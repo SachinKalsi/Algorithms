@@ -1,2 +1,2 @@
 # Algorithms
-Algorithms
+Algorithms & Data Structures
