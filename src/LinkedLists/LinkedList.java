@@ -4,6 +4,21 @@ package LinkedLists;
  * Created by kalsi on 29/07/17.
  */
 public class LinkedList {
+
+    public Node createSLL(int[] array) {
+        if (array.length == 0) {
+            return null;
+        }
+        Node start = new Node(array[0]);
+        Node current = start;
+        for (int i = 1; i < array.length; i++) {
+            current.right = new Node(array[i]);
+            current = current.right;
+        }
+        return start;
+
+    }
+
     public Node createDLL(int[] array) {
         if (array.length == 0) {
             return null;
@@ -42,14 +57,14 @@ public class LinkedList {
 
     public Node reverseDLL(Node start) {
         Node node = reverse(start);
-        while(node.left != null) {
+        while (node.left != null) {
             node = node.left;
         }
         return node;
     }
 
     private Node reverse(Node n) {
-        if(n == null){
+        if (n == null) {
             return null;
         }
         Node next = reverse(n.right);
@@ -57,5 +72,35 @@ public class LinkedList {
         n.left = next;
         n.right = temp;
         return n;
+    }
+
+    public Node merge(Node first, Node second) {
+        if (first == null || second == null) {
+            return first == null ? second : first;
+        }
+        Node temp = null;
+
+        if (first.data > second.data) {
+            temp = second;
+            second = first;
+            first = temp;
+        }
+        Node finalNode = first;
+        while (first != null && second != null) {
+            temp = first.right;
+            if (temp == null) {
+                first.right = second;
+                break;
+            }
+            if ((first.data < second.data) && (second.data < temp.data)) {
+                first.right = second;
+                second = second.right;
+                first.right.right = temp;
+                first = first.right;
+            } else {
+                first = first.right;
+            }
+        }
+        return finalNode;
     }
 }
