@@ -11,8 +11,8 @@ public class AddNumbers {
     }
 
     private void demo() {
-        int[] number1 = {9, 9, 9};
-        int[] number2 = {9, 9, 9};
+        int[] number1 = {9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9};
+        int[] number2 = {9, 9, 9, 9, 6, 3, 1, 3, 5, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9};
         Node firstNumber = LinkedList.createSLL(number1);
         Node secondNumber = LinkedList.createSLL(number2);
         Node result = prepareAndAddNumbers(firstNumber, secondNumber);
