@@ -10,7 +10,6 @@ public class ReverseDLL {
 
     private void demo() {
         int[] array = {1, 2, 3, 4, 5};
-
         Node start = LinkedList.createDLL(array);
         System.out.println("Before reverse");
         LinkedList.displayDLL(start, true);
@@ -18,7 +17,5 @@ public class ReverseDLL {
         System.out.println();
         System.out.println("After reverse");
         LinkedList.displayDLL(start, true);
-
     }
-
 }

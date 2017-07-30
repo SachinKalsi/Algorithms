@@ -126,4 +126,23 @@ public class LinkedList {
         }
         return nthNode;
     }
+
+    public static Node reverseSLL(Node start) {
+        if(start == null) {
+            return null;
+        }
+        int length = LinkedList.getLength(start);
+
+        Node next = start.right;
+        start.right = null;
+        Node previous = next;
+
+        while (length-- > 1) {
+            next = previous.right;
+            previous.right = start;
+            start = previous;
+            previous = next;
+        }
+        return start;
+    }
 }
