@@ -5,7 +5,7 @@ package LinkedLists;
  */
 public class LinkedList {
 
-    public Node createSLL(int[] array) {
+    public static Node createSLL(int[] array) {
         if (array.length == 0) {
             return null;
         }
@@ -19,7 +19,7 @@ public class LinkedList {
 
     }
 
-    public Node createDLL(int[] array) {
+    public static Node createDLL(int[] array) {
         if (array.length == 0) {
             return null;
         }
@@ -37,7 +37,7 @@ public class LinkedList {
         return main;
     }
 
-    public void displayDLL(Node start, boolean displayReverse) {
+    public static void displayDLL(Node start, boolean displayReverse) {
         if (start == null) {
             System.out.println("The linked list is empty!!");
             return;
@@ -55,7 +55,7 @@ public class LinkedList {
         }
     }
 
-    public Node reverseDLL(Node start) {
+    public static Node reverseDLL(Node start) {
         Node node = reverse(start);
         while (node.left != null) {
             node = node.left;
@@ -63,7 +63,7 @@ public class LinkedList {
         return node;
     }
 
-    private Node reverse(Node n) {
+    private static Node reverse(Node n) {
         if (n == null) {
             return null;
         }
@@ -74,7 +74,7 @@ public class LinkedList {
         return n;
     }
 
-    public Node merge(Node first, Node second) {
+    public static Node merge(Node first, Node second) {
         if (first == null || second == null) {
             return first == null ? second : first;
         }
@@ -102,5 +102,28 @@ public class LinkedList {
             }
         }
         return finalNode;
+    }
+
+    public static int getLength(Node node) {
+        int length = 0;
+        while (node != null) {
+            length++;
+            node = node.right;
+        }
+        return length;
+    }
+
+    public static Node getNthNode(Node node, int n) {
+        Node nthNode = null;
+        int count = 0;
+        while (node != null) {
+            if (count == n) {
+                nthNode = node;
+                break;
+            }
+            count++;
+            node = node.right;
+        }
+        return nthNode;
     }
 }
