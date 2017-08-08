@@ -12,6 +12,8 @@ public class Heap {
         int[] array = {16, 4, 10, 14, 7, 9, 3, 28, 1};
         int[] heapAray = buildHeap(array);
         displayHeap(heapAray);
+        addItem(heapAray, 25);
+//        displayHeap(heapAray);
     }
 
     private int[] buildHeap(int[] array) {
@@ -56,8 +58,11 @@ public class Heap {
     }
 
     private void displayHeap(int[] array) {
-        System.out.println("MAX Heap:");
         for (int i = 1; i < array.length; i++) System.out.print(array[i] + "\t");
         System.out.println();
+
+    }
+
+    private void addItem(int[] heapAray, int n) {
     }
 }
