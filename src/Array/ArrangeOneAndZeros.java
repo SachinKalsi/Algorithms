@@ -70,17 +70,6 @@ public class ArrangeOneAndZeros {
         array[k] = array[k] - array[i];
     }
 
-    private int getIndex(int[] array, int n, int number) {
-        for (int i = n + 1; i < array.length; i++) {
-            if (array[i] == number) {
-                return i;
-
-            }
-
-        }
-        return -1;
-    }
-
     private void display(int[] array) {
         for (int i = 0; i < array.length; i++) {
             System.out.print(array[i] + "\t");
