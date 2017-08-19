@@ -36,7 +36,7 @@ public class NumberOfInversions {
                 array[i+j] = right[j];
                 j++;
             } else if (j == right.length) {
-                array[i+j] = right[i];
+                array[i+j] = left[i];
                 i++;
             } else if (left[i] <= right[j]) {
                 array[i+j] = left[i];
