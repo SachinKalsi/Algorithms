@@ -12,7 +12,7 @@ public class LargestSum {
     }
 
     private void demo() {
-        int[] array = {-2, -3, 4, -1, -2, 1, 5, -3};
+        int[] array = {-2, -3, -4, 10, -2, 3, -5, -3};
         System.out.println("Max Sum: " + maxSum(array));
         System.out.println("Max Sum: " + maxSumSingleLoop(array)); // in a single loop,
     }
@@ -20,19 +20,19 @@ public class LargestSum {
     private int maxSumSingleLoop(int[] array) {
         int maxSoFar = array[0];
         int currentMax = array[0];
-        int start = 0, end = 0;
+        int start = 0, end = 0, s = 0;
         for (int i = 1; i < array.length; i++) {
 //            currentMax = Math.max(array[i], currentMax + array[i]);
             if (array[i] > (currentMax + array[i])) {
                 currentMax = array[i];
-                start = i;
-                end = i;
+                s = i;
             } else {
                 currentMax = currentMax + array[i];
             }
 //            maxSoFar = Math.max(maxSoFar, currentMax);
             if (maxSoFar < currentMax) {
                 maxSoFar = currentMax;
+                start = s;
                 end = i;
             }
         }
@@ -60,14 +60,19 @@ public class LargestSum {
         // Kadane
         maxSoFar = 0;
         int currentMax = 0;
+        int start = 0, end = 0, s = 0;
         for (int i = 0; i < array.length; i++) {
             currentMax = currentMax + array[i];
             if (currentMax < 0) {
                 currentMax = 0;
+                s = i + 1;
             } else if (currentMax > maxSoFar) {
                 maxSoFar = currentMax;
+                start = s;
+                end = i;
             }
         }
+        System.out.println("start: " + start + " end: " + end);
         return maxSoFar;
     }
 
