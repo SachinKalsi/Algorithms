@@ -1,4 +1,4 @@
-package Array.StacksAndQueues;
+package StacksAndQueues;
 
 /**
  * Created by kalsi on 22/08/17.
