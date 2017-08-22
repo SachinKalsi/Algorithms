@@ -22,7 +22,8 @@ public class GetMiddle {
         while (true) {
             System.out.println("1: insert");
             System.out.println("2: get mid");
-            System.out.println("3: display");
+            System.out.println("3: remove");
+            System.out.println("4: display");
             System.out.println("Your choice: ");
             choice = scanner.nextInt();
             switch (choice) {
@@ -34,6 +35,9 @@ public class GetMiddle {
                     getMid();
                     break;
                 case 3:
+                    remove();
+                    break;
+                case 4:
                     displayQueue();
                     break;
                 default:
@@ -51,9 +55,7 @@ public class GetMiddle {
         } else {
             end.right = new Node(item);
             end = end.right;
-            if (count % 2 == 0) {
-                mid = mid.right;
-            }
+            setMid();
         }
         count++;
     }
@@ -66,8 +68,27 @@ public class GetMiddle {
         }
     }
 
+    private void setMid() {
+        if (start == null) {
+            mid = null;
+        } else if (count % 2 == 0) {
+            mid = mid.right;
+        }
+    }
+
+    private void remove() {
+        if (start == null) {
+            System.out.println("Nothing to remove");
+        } else {
+            System.out.println("Removed: " + start.data);
+            start = start.right;
+            setMid();
+            count--;
+        }
+    }
+
     private void displayQueue() {
-        if(start == null) {
+        if (start == null) {
             System.out.println("Queue is empty!!");
             return;
         }
