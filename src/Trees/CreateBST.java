@@ -15,6 +15,9 @@ public class CreateBST {
         Node n = createBST(array);
         inorder(n);
     }
+    public Node makeBST(int[] array) {
+        return createBST(array);
+    }
 
     private void inorder(Node n) {
         if (n != null) {
