@@ -27,6 +27,10 @@ public class CheckBST {
         if (n.data < min || n.data > max) {
             return false;
         }
+        if(n.data == max || n.data == min) {
+            System.out.println("duplication of data");
+            return false;
+        }
         return isBST(n.left, min, n.data) && isBST(n.right, n.data, max);
     }
 }
