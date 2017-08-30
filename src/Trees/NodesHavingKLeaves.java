@@ -4,6 +4,7 @@ package Trees;
  * Created by kalsi on 30/08/17.
  * Implement a function which returns list of all nodes in a binary tree having a given number
  of leaves, say k .
+ http://www.geeksforgeeks.org/print-nodes-binary-tree-k-leaves/
  */
 public class NodesHavingKLeaves {
     public static void main(String[] args) {
