@@ -1,5 +1,7 @@
 package Strings;
 
+import java.util.ArrayList;
+
 /**
  * Created by kalsi on 31/08/17.
  */
@@ -16,7 +18,7 @@ public class LongestCommon {
 
     public static void main(String[] args) {
         String s1 = "abcdzaf";
-        String s2 = "zbcdzf";
+        String s2 = "zbcdp";
         new LongestCommon().findLongestCommon(s1, s2);
     }
 
@@ -35,6 +37,45 @@ public class LongestCommon {
         index.max = 0;
         longest("subsequence", s1, s2, matrix, index);
         System.out.println("Length of Longest Common Subsequence: " + index.max);
+//        printSubsequence(matrix, s1, s2); // Not working
+    }
+
+    private void printSubsequence(int[][] matrix, String s1, String s2) {
+        ArrayList<Character> al = new ArrayList<Character>();
+        printSubsequence(matrix, s1, s2, matrix.length - 1, matrix[0].length - 1, al);
+
+    }
+
+    private void printSubsequence(int[][] matrix, String s1, String s2, int m, int n, ArrayList<Character> al) {
+        if (m == 0 || n == 0) {
+            for(Character c: al) {
+                System.out.print(c);
+            }
+//            System.out.println();
+            return;
+        }
+        if (s1.charAt(m - 1) == s2.charAt(n - 1)) {
+            System.out.println(m);
+            al.add(s1.charAt(m - 1));
+            m--;
+            n--;
+            printSubsequence(matrix, s1, s2, m, n, al);
+        } else if (matrix[m - 1][n] == matrix[m][n - 1]) {
+            {
+                m--;
+                printSubsequence(matrix, s1, s2, m, n, new ArrayList<Character>(al));
+                n--;
+                m++;
+                printSubsequence(matrix, s1, s2, m, n, new ArrayList<Character>(al));
+            }
+        } else if (matrix[m - 1][n] > matrix[m][n - 1]) {
+            n--;
+            printSubsequence(matrix, s1, s2, m, n, al);
+
+        } else {
+            m--;
+            printSubsequence(matrix, s1, s2, m, n, al);
+        }
     }
 
     private void printSubstring(int[][] matrix, Index index, String s) {
