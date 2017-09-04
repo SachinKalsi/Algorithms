@@ -1,2 +1,2 @@
-Strings -> LongestCommon.java, LongestPalindromSubsequence.java(Using DP)
+Strings -> LongestCommon.java, LongestPalindromSubsequence.java(Using DP), SmallestSubstring
 Trees   -> KDistance.java
