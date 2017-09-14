@@ -1,6 +1,6 @@
 package Trees;
 
-import java.util.ArrayList;
+import java.util.*;
 
 /**
  * Created by kalsi on 01/09/17.
@@ -32,30 +32,44 @@ public class LevelOrder {
                            4        7              13
         *
         * */
-        displayLevelOrder(n);
+        System.out.println("Without zigzag");
+        displayLevelOrder(n, false); //without zigzag
+        System.out.println("With zigzag");
+        displayLevelOrder(n, true); //with zigzag
     }
 
-    private void displayLevelOrder(Node n) {
+    private void displayLevelOrder(Node n, Boolean zigzag) {
         if (n == null) {
             return;
         }
-        ArrayList<Node> parents = new ArrayList<Node>();
+        Boolean flag = true;
+        Deque<Node> parents = new LinkedList<Node>();
         parents.add(n);
-        System.out.println(n.data);
         while (!parents.isEmpty()) {
-            ArrayList<Node> tempParents = new ArrayList<Node>();
-            for (Node parent : parents) {
-                if (parent.left != null) {
-                    System.out.print(parent.left.data + "\t");
-                    tempParents.add(parent.left);
+            print(parents, flag, zigzag);
+            flag = !flag;
+            int count = parents.size();
+            while (count-- > 0) {
+                Node removedParent = parents.removeFirst();
+                if (removedParent.left != null) {
+                    parents.addLast(removedParent.left);
                 }
-                if (parent.right != null) {
-                    System.out.print(parent.right.data + "\t");
-                    tempParents.add(parent.right);
+                if (removedParent.right != null) {
+                    parents.addLast(removedParent.right);
                 }
             }
-            parents  = tempParents;
             System.out.println();
         }
+    }
+
+    private void print(Deque<Node> parents, Boolean flag, Boolean zigzag) {
+        Iterator<Node> iterator = parents.descendingIterator();
+        if (!zigzag || flag) {
+            iterator = parents.iterator();
+        }
+        while (iterator.hasNext()) {
+            System.out.print(iterator.next().data + "\t");
+        }
+
     }
 }
