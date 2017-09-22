@@ -2,6 +2,10 @@ package Array;
 
 /**
  * Created by kalsi on 05/08/17.
+ * Find equilibrium index in array.
+ * Its the index i where sum till i from 0th index = sum from ith
+ index to last index
+ Time: O(n)
  */
 public class Equilibrium {
     public static void main(String[] args) {
