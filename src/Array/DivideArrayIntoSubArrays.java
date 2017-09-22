@@ -9,13 +9,14 @@ import java.util.Arrays;
  */
 public class DivideArrayIntoSubArrays {
     public static void main(String[] args) {
-//        Divide a given array into two subarray (not necessary to be continuous) such that difference
-//        between sum of both array is minimum.
+/*        Divide a given array into two subarray (not necessary to be continuous) such that difference
+        between sum of both array is minimum.
+ TIME: O(nlogn) */
         new DivideArrayIntoSubArrays().demo();
     }
 
     private void demo() {
-        int[] array = { 25, 21, 20, 17, 8};
+        int[] array = {25, 21, 20, 17, 8};
         divideArray(array);
     }
 
